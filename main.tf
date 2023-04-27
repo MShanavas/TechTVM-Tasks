@@ -31,6 +31,7 @@ resource "aws_s3_bucket" "techtvm-s3" {
 resource "aws_db_instance" "techtvm-rds" {
   allocated_storage    = 10
   db_name              = "techtvm_db"
+  identifier           = "techtvm_db01" 
   engine               = "mysql"
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
