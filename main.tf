@@ -10,10 +10,37 @@ resource "aws_key_pair" "tech_key" {
   public_key = file("TechTVM-key.pub")
 }
 resource "aws_instance" "srv01" {
-  ami           = "ami-0578f2b35d0328762"
-  instance_type = "t2.micro"
+  ami           = var.ami
+  instance_type = var.instance_type
   key_name = aws_key_pair.tech_key.key_name
   tags = {
-    Name = "TechTVM-Tasks"
+    Name = var.instance_name
+    Environment = var.environment
+    Project_name = var.project_name
   }
+}
+resource "aws_s3_bucket" "techtvm-s3" {
+  bucket = var.aws_s3_bucket_name
+
+  tags = {
+    Name        = var.aws_s3_bucket_name
+    Environment = var.environment
+    Project_name = var.project_name
+  }
+}
+resource "aws_db_instance" "techtvm-rds" {
+  allocated_storage    = 10
+  db_name              = "techtvm_db"
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t3.micro"
+  username             = "dbadmin"
+  password             = "dbPass123"
+  parameter_group_name = "default.mysql5.7"
+  skip_final_snapshot  = true
+    tags = {
+      Name = "techtvm_rds"
+      Environment = var.environment
+      Project_name = var.project_name
+    }
 }
