@@ -7,8 +7,8 @@ variable "secret_key" {
 }
 
 variable "ami" {
-  default     = "ami-0578f2b35d0328762"
-  description = "Image should be available on the same region"
+  default     = "ami-0a695f0d95cefc163"
+  description = "Image of Ubuntu Server 22.04 LTS"
 }
 
 variable "instance_name" {
