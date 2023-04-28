@@ -36,7 +36,7 @@ resource "aws_db_instance" "techtvm-rds" {
   engine_version       = "5.7"
   instance_class       = "db.t3.micro"
   username             = "dbadmin"
-  password             = "dbPass123"
+  password             = var.rds_dbsecret
   parameter_group_name = "default.mysql5.7"
   skip_final_snapshot  = true
     tags = {
