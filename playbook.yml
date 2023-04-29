@@ -33,32 +33,7 @@
           - php-xml
         state: present
 
-    - name: Install MySQL
-      apt:
-        name: mysql-server
-        state: present
-
-    - name: Secure MySQL installation
-      debconf:
-        name: mysql-server
-        question: mysql-server/root_password
-        value: "{{ db_password }}"
-        vtype: password
-      become: true
-    - debconf:
-        name: mysql-server
-        question: mysql-server/root_password_again
-        value: "{{ db_password }}"
-        vtype: password
-      become: true
-
-    - name: Create a MySQL database
-      mysql_db:
-        name: "{{ db_name }}"
-        state: present
-        login_user: root
-        login_password: "{{ db_password }}"
-
+    
     - name: Create a MySQL user for WordPress
       mysql_user:
         name: "{{ db_user }}"
