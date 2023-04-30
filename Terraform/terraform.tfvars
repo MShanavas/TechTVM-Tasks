@@ -1,3 +1,4 @@
-access_key   = "AKIASWWF23TWPNPCEMN4"
-secret_key   = "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"
+# add aws access keys and secrets
+access_key   = "IAM ACCESS ID"
+secret_key   = "IAM SECRET KEY"
 rds_dbsecret = "dbPass123"
