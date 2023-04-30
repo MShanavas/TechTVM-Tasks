@@ -4,12 +4,13 @@ php_modules: [ 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'p
 
 #MySQL Settings
 #mysql_root_password: "dbPass123"
+#change this db settings
 mysql_db: "techtvm_db"
 mysql_user: "dbadmin"
 mysql_password: "dbPass123"
 rds_endpoint: "techtvm-db01.csz2p6s00uwa.us-east-2.rds.amazonaws.com"
 
 #HTTP Settings
-http_host: "3.145.155.1190"
+http_host: "PUBLIC IP/DOMAINNAME"
 http_conf: "techtvm.conf"
 http_port: "80"
