@@ -1,0 +1,33 @@
+---
+- name: Install and Configure AWS CLI
+  hosts: all
+  become: true
+  vars:
+    aws_access_key: "AKIASWWF23TWPNPCEMN4"
+    aws_secret_key: "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"
+    aws_region: "us-east-2"
+  tasks:
+    - name: Download AWS CLI v2 installation bundle
+      command: "curl 'https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip' -o 'awscliv2.zip'"
+      args:
+        chdir: /tmp
+
+    - name: Install Unzip
+      apt:
+        name: unzip
+        state: present
+        
+    - name: Unzip AWS CLI v2 installation bundle
+      command: "unzip awscliv2.zip"
+      args:
+        chdir: /tmp
+
+    - name: Install AWS CLI v2
+      command: "sudo /tmp/aws/install"
+
+    - name: Configure AWS access, secret, and region
+      command: aws configure set {{ item.key }} {{ item.value }}
+      with_items:
+        - { key: "aws_access_key_id", value: "{{ aws_access_key }}" }
+        - { key: "aws_secret_access_key", value: "{{ aws_secret_key }}" }
+        - { key: "region", value: "{{ aws_region }}" }
