@@ -1,6 +1,6 @@
 #!/bin/bash
 s3_bucket="techtvm-s3"
-# Set the MySQL database information
+# Set the MySQL database information | change this endpoint, db , user and password
 db_host="techtvm-db01.csz2p6s00uwa.us-east-2.rds.amazonaws.com"
 db_name="techtvm_db"
 db_user="dbadmin"
@@ -16,7 +16,7 @@ if [ -e "$backup_dir" ]
   else
     mkdir -p "$backup_dir"
 fi
-# Scheduled Backup the WordPress files to S3
+# compressed wordpress documents and backuping to the S3 bucket
 cd $backup_dir
 tar -cvzf "${backup_date}.tar.gz" /var/www/localhost/wordpress/
 aws s3 cp "${backup_date}.tar.gz" "s3://${s3_bucket}/wordpress-backups/"
