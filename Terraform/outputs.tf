@@ -9,6 +9,6 @@ output "instance_public_ip" {
 }
 
 output "rds_endpoint" {
-  
+  description = "Show endpoint of the RDS"
   value = aws_db_instance.techtvm-rds.endpoint
 }
