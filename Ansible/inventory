@@ -1,2 +1,2 @@
 [techtvm]
-3.145.155.119 ansible_user="ubuntu" ansible_port=22 ansible_ssh_private_key_file="/mnt/c/Users/HB/Desktop/TechTVM-Tasks/TechTVM-key"
+(PUBLIC IP/PUBLIC DOMAIN NAME) ansible_user="ubuntu" ansible_port=22 ansible_ssh_private_key_file="PRIVATE KEY FILE"
