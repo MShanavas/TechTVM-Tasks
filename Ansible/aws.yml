@@ -3,8 +3,8 @@
   hosts: all
   become: true
   vars:
-    aws_access_key: "AKIASWWF23TWPNPCEMN4"
-    aws_secret_key: "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"
+    aws_access_key: "IAM ACCESS KEY"
+    aws_secret_key: "IAM SECRET KEY"
     aws_region: "us-east-2"
   tasks:
     - name: Download AWS CLI v2 installation bundle
