@@ -52,4 +52,23 @@ You can view these outputs after running `terraform apply` by running `terraform
 
 To delete the resources created by this Terraform configuration, run `terraform destroy`. This will remove all resources created by the configuration. 
 
+## Ansible Configuration
+
+The Ansible configuration is located in the `ansible` directory. It consists of the following directories and files:
+
+### Directories
+
+- `files`: This directory contains the `wp-config.php` file, which is used to configure WordPress.
+- `vars`: This directory contains the `main.yml` file, which defines variables used by the Ansible playbook.
+
+### Playbooks
+
+- `aws.yml`: This playbook installs the AWS CLI and configures it with your AWS access key and secret key. It also installs the required packages for the playbook, creates the `www` directory, and sets the appropriate permissions on the directory. Finally, it downloads and extracts WordPress to the `www` directory and sets the appropriate ownership and permissions on the WordPress files.
+- `playbook.yml`: This playbook installs and configures a LAMP stack on the EC2 instance, and installs and configures WordPress.
+
+### Other Files
+
+- `backup.sh`: This script backs up the WordPress
+
+
 I hope this helps! Let me know if you have any questions or need further assistance.
