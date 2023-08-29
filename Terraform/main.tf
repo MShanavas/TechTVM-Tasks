@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_key_pair" "tech_key" {
 #public key location
   key_name   = "TechTVM"
-  public_key = file("/mnt/c/Users/HB/Desktop/TechTVM-Tasks/TechTVM-key.pub")
+  public_key = file("/TechTVM-Tasks/TechTVM-key.pub")
 }
 resource "aws_instance" "srv01" {
   ami           = var.ami
